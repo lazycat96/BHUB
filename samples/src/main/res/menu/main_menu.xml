@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+       <item
+        android:id="@+id/mast"
+        android:orderInCategory="1"
+        android:title="Master" />
+    <item
+        android:id="@+id/gst"
+        android:orderInCategory="2"
+        android:title="Guest" />
+    <item
+        android:id="@+id/qr"
+        android:orderInCategory="3"
+        android:title="QR-code" />
+    <item
+        android:id="@+id/nnn"
+        android:orderInCategory="4"
+        android:title="" />
+
+</menu>
