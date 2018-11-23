@@ -14,6 +14,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.uriio.beacons.Beacons;
+import com.uriio.beacons.model.iBeacon;
+
 public class Identify extends AppCompatActivity {
     private EditText username;
     private EditText password;
@@ -64,7 +67,6 @@ public class Identify extends AppCompatActivity {
         link = (Button) findViewById(R.id.link);
         username = (EditText) findViewById(R.id.edit_user);
         password = (EditText) findViewById(R.id.edit_password);
-        login = (Button) findViewById(R.id.button_login);
         loginLocked = (TextView) findViewById(R.id.login_locked);
         attempts = (TextView) findViewById(R.id.attempts);
         numberOfAttempts = (TextView) findViewById(R.id.number_of_attempts);
@@ -73,7 +75,7 @@ public class Identify extends AppCompatActivity {
         link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Identify.this,myName.class);
+                Intent intent = new Intent(Identify.this,QRCodeGenerator.class);
                 startActivity(intent);
             }
         });
@@ -82,28 +84,15 @@ public class Identify extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main_menu, menu);
-//        MenuItem myItem = menu.findItem(R.id.nnn);
-//           myItem.setTitle(myName.username.getText().toString());
-
-
-        return true;
+                return true;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch(id){
-            case R.id.mast :
-                return true;
+
             case R.id.gst:
                 Intent intent = new Intent(Identify.this,myName.class);
-                startActivity(intent);
-                return true;
-            case R.id.qr:
-                intent = new Intent(Identify.this,DecoderActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.nnn :
-                intent = new Intent(Identify.this,MainActivity.class);
                 startActivity(intent);
                 return true;
 
@@ -119,7 +108,6 @@ public class Identify extends AppCompatActivity {
         if (username.getText().toString().equals("admin") &&
                 password.getText().toString().equals("admin")) {
             Toast.makeText(getApplicationContext(), "Вход выполнен!",Toast.LENGTH_SHORT).show();
-
             // Выполняем переход на другой экран:
             Intent intent = new Intent(Identify.this,MainActivity.class);
             startActivity(intent);

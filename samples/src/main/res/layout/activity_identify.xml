@@ -80,7 +80,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_password"
@@ -110,14 +110,6 @@
         android:layout_alignLeft="@+id/attempts"
         android:layout_alignStart="@+id/attempts" />
 
-    <Button
-        android:id="@+id/link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:onClick="Login"
-        android:text="LINK" />
+
 
 </RelativeLayout>

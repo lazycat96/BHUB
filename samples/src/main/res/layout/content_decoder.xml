@@ -32,6 +32,7 @@
       android:padding="16dp"
       android:textSize="14sp"
       android:textColor="#ffffff"
+      android:autoLink="web"
       />
 
   <CheckBox

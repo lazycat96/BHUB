@@ -1,13 +1,17 @@
 package com.example.qr_readerexample;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.PointF;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -23,11 +27,15 @@ public class DecoderActivity extends AppCompatActivity
 
   private ViewGroup mainLayout;
 
-  private TextView resultTextView;
+  private  TextView resultTextView;
   private QRCodeReaderView qrCodeReaderView;
   private CheckBox flashlightCheckBox;
   private CheckBox enableDecodingCheckBox;
   private PointsOverlayView pointsOverlayView;
+  public static String srt;
+
+
+
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -78,10 +86,15 @@ public class DecoderActivity extends AppCompatActivity
   // Called when a QR is decoded
   // "text" : the text encoded in QR
   // "points" : points where QR control points are placed
-  @Override public void onQRCodeRead(String text, PointF[] points) {
-    resultTextView.setText(text);
+  @Override
+  public void onQRCodeRead(String text, PointF[] points) {
+     resultTextView.setText(text);
+     srt = text;
+   Intent intent = new Intent(DecoderActivity.this,MainActivity.class);
+    startActivity(intent);
     pointsOverlayView.setPoints(points);
   }
+
 
   private void requestCameraPermission() {
     if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
@@ -111,6 +124,8 @@ public class DecoderActivity extends AppCompatActivity
     enableDecodingCheckBox = (CheckBox) content.findViewById(R.id.enable_decoding_checkbox);
     pointsOverlayView = (PointsOverlayView) content.findViewById(R.id.points_overlay_view);
 
+
+
     qrCodeReaderView.setAutofocusInterval(2000L);
     qrCodeReaderView.setOnQRCodeReadListener(this);
     qrCodeReaderView.setBackCamera();
@@ -126,4 +141,5 @@ public class DecoderActivity extends AppCompatActivity
     });
     qrCodeReaderView.startCamera();
   }
+
 }

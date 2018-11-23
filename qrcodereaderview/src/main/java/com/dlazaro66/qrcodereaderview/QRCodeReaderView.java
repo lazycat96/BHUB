@@ -16,16 +16,20 @@
 package com.dlazaro66.qrcodereaderview;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.graphics.PointF;
 import android.hardware.Camera;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.google.zxing.BinaryBitmap;
@@ -372,6 +376,7 @@ public class QRCodeReaderView extends SurfaceView
                 return view.mQRCodeReader.decode(bitmap, hintsRef.get());
             } catch (ChecksumException e) {
                 SimpleLog.d(TAG, "ChecksumException", e);
+
             } catch (NotFoundException e) {
                 SimpleLog.d(TAG, "No QR Code found");
             } catch (FormatException e) {
