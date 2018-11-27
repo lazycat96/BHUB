@@ -5,39 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".myName">
-
-    <Button
-        android:id="@+id/done"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:onClick="done"
-        android:text="DONE" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/user_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/Login"
-        android:layout_marginTop="75dp"
-        android:layout_marginLeft="10dp"
-        android:text="Пользователь:"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <ImageView
+            android:layout_width="173dp"
+            android:layout_height="177dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/clevtec" />
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <EditText
+        android:drawableStart="@drawable/ic_person_black_24dp"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:background="@drawable/roundeedittext"
         android:id="@+id/username"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/user_text"
-        android:layout_marginLeft="35dp"
-        android:layout_toRightOf="@+id/user_text"
-        android:hint="введите имя " >
-        <requestFocus />
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:padding="10dp"
+        android:hint="Enter username">
     </EditText>
+    <Button
+        android:id="@+id/done"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:onClick="done"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/roundedbutton"
+        android:text="Enter" />
 
-
-
+</LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

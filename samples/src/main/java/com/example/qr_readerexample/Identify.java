@@ -2,7 +2,6 @@ package com.example.qr_readerexample;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -10,27 +9,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.uriio.beacons.Beacons;
-import com.uriio.beacons.model.iBeacon;
 
 public class Identify extends AppCompatActivity {
     private EditText username;
     private EditText password;
-    private Button login;
-    private TextView loginLocked;
-    private TextView attempts;
-    private TextView numberOfAttempts;
+//    private Button login;
+//    private TextView loginLocked;
+//    private TextView attempts;
+//    private TextView numberOfAttempts;
     private Button link;
     private final static int REQUEST_ENABLE_BT = 1;
-    Switch switchButton;
-    int i = 1;
-    Intent bluetoothIntent;
-    // Число для подсчета попыток залогиниться:
-    int numberOfRemainingLoginAttempts = 3;
+
+//    int i = 1;
+//    Intent bluetoothIntent;
+//    // Число для подсчета попыток залогиниться:
+//    int numberOfRemainingLoginAttempts = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,18 +61,11 @@ public class Identify extends AppCompatActivity {
         link = (Button) findViewById(R.id.link);
         username = (EditText) findViewById(R.id.edit_user);
         password = (EditText) findViewById(R.id.edit_password);
-        loginLocked = (TextView) findViewById(R.id.login_locked);
-        attempts = (TextView) findViewById(R.id.attempts);
-        numberOfAttempts = (TextView) findViewById(R.id.number_of_attempts);
-        numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
+        //loginLocked = (TextView) findViewById(R.id.login_locked);
+//        attempts = (TextView) findViewById(R.id.attempts);
+//        numberOfAttempts = (TextView) findViewById(R.id.number_of_attempts);
+//        numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
 
-        link.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Identify.this,QRCodeGenerator.class);
-                startActivity(intent);
-            }
-        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,29 +96,29 @@ public class Identify extends AppCompatActivity {
                 password.getText().toString().equals("admin")) {
             Toast.makeText(getApplicationContext(), "Вход выполнен!",Toast.LENGTH_SHORT).show();
             // Выполняем переход на другой экран:
-            Intent intent = new Intent(Identify.this,MainActivity.class);
+            Intent intent = new Intent(Identify.this,QRCodeGenerator.class);
             startActivity(intent);
         }
 
         // В другом случае выдаем сообщение с ошибкой:
         else {
             Toast.makeText(getApplicationContext(), "Неправильные данные!",Toast.LENGTH_SHORT).show();
-            numberOfRemainingLoginAttempts--;
+          //  numberOfRemainingLoginAttempts--;
 
             // Делаем видимыми текстовые поля, указывающие на количество оставшихся попыток:
-            attempts.setVisibility(View.VISIBLE);
-            numberOfAttempts.setVisibility(View.VISIBLE);
-            numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
+//            attempts.setVisibility(View.VISIBLE);
+//            numberOfAttempts.setVisibility(View.VISIBLE);
+//            numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
 
             // Когда выполнено 3 безуспешных попытки залогиниться,
             // делаем видимым текстовое поле с надписью, что все пропало и выставляем
             // кнопке настройку невозможности нажатия setEnabled(false):
-            if (numberOfRemainingLoginAttempts == 0) {
-                login.setEnabled(false);
-                loginLocked.setVisibility(View.VISIBLE);
-                loginLocked.setBackgroundColor(Color.RED);
-                loginLocked.setText("Вход заблокирован!!!");
-            }
+//            if (numberOfRemainingLoginAttempts == 0) {
+//                login.setEnabled(false);
+//                loginLocked.setVisibility(View.VISIBLE);
+//                loginLocked.setBackgroundColor(Color.RED);
+//                loginLocked.setText("Вход заблокирован!!!");
+//            }
         }
     }
 //    public void BluetoothEnable(){
